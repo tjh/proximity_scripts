@@ -37,11 +37,23 @@ if okflag is true then
 end if
 
 delay 1
--- Set Adium status to away
+
+-- Set Skype status
+tell application "System Events"
+	set skype_running to (exists process "Skype")
+end tell
+if skype_running is true then
+	tell application "Skype"
+		send command "SET USERSTATUS OFFLINE" script name "AppleScript status setter"
+	end tell
+end if
+
+-- Set Adium status
 tell application "System Events"
      set adium_running to (exists process "Adium")
 end tell
 if adium_running then
      tell application "Adium" to go away with message "I am away from my computer"
 end if
+
 end run
