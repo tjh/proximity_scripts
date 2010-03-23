@@ -1,22 +1,27 @@
+-- Disable the screen Saver Password
+do shell script "defaults -currentHost write com.apple.screensaver askForPassword -int 0; ~/notif"
+-- Turn OFF the screen saver
+tell application "ScreenSaverEngine" to quit
+
 -- Set Adium status
-tell application "System Events"
-   set adium_running to (exists process "Adium")
-end tell
-if adium_running then
-   tell application "Adium" to go available
-end if
+-- tell application "System Events"
+--    set adium_running to (exists process "Adium")
+-- end tell
+-- if adium_running then
+--    tell application "Adium" to go available
+-- end if
 
 -- Set Skype status
-tell application "System Events"
-	set skype_running to (exists process "Skype")
-end tell
-if skype_running is true then
-	tell application "Skype"
-		send command "SET USERSTATUS ONLINE" script name "AppleScript status setter"
-	end tell
-end if
+-- tell application "System Events"
+-- 	set skype_running to (exists process "Skype")
+-- end tell
+-- if skype_running is true then
+-- 	tell application "Skype"
+-- 		send command "SET USERSTATUS ONLINE" script name "AppleScript status setter"
+-- 	end tell
+-- end if
 
-say "Welcome back master" using "Zarvox"
+say "Welcome" using "Zarvox"
 
 global okflag
 set okflag to false
